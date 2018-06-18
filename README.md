@@ -23,7 +23,7 @@ new Vue({
 ```
 
 ```html
-<button class="Button" @click="showModal('modal-reference-name')">Show Modal</button>
+<button @click="showModal('modal-reference-name')">Show Modal</button>
 <vue-modal ref="modal-reference-name" @close="hideModal">
   <template slot="title">Modal Title</template>
   <template slot="body">
@@ -39,8 +39,43 @@ The default element name for the modal is `<vue-modal></vue-modal>`, You can ove
 
 ```javascript
 Vue.use(Modal, {
-  componentName: 'component-name'
+  componentName: 'component-name',
 });
+```
+
+If you wish to add an animation to the modal you can use the following props, There is no animation library included with the modal
+but you can pass your own or even use Animate.css
+
+```javascript
+...
+  props: {
+    animatedOverlay: {
+      default: 'animated fadeIn',
+      type: String,
+    },
+    animationIn: {
+      default: 'animated bounceInLeft',
+      type: String,
+    },
+    animationOut: {
+      default: 'animated bounceOutRight',
+      type: String,
+    },
+  },
+...
+```
+
+```html
+<vue-modal
+  ref="modal-reference-name"
+  @close="hideModal"
+
+  animated-overlay="animated fadeIn"
+  animation-in="animated bounceInDown"
+  animation-out="animated bounceOutUp"
+  >
+  ...
+</vue-modal>
 ```
 
 ## TODO
