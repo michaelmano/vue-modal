@@ -1,0 +1,27 @@
+{
+  "name": "@ajutoare/vue-modal",
+  "version": "1.0.0",
+  "description": "A simple modal for Vue.js",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ajutoare/vue-modal.git"
+  },
+  "author": {
+    "name": "Michael Mano",
+    "email": "michael.mano26@gmail.com",
+    "url": "https://michaelmano.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ajutoare/vue-modal/issues"
+  },
+  "homepage": "https://github.com/ajutoare/vue-modal#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-google": "^0.9.1"
+  }
+}
