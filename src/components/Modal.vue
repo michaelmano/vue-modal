@@ -65,6 +65,10 @@ $v-modal-colors: (
 
 .Modal {
   position: absolute;
+
+  & * {
+      box-sizing: border-box;
+  }
 }
 
 .Modal__overlay {
