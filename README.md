@@ -10,11 +10,11 @@ Vue Modal is a simple modal written in vuejs.
 
 ## Installing
 
-`npm install @ajutoare/vue-modal`
+`npm install @mmano/vue-modal`
 
 ```javascript
 import Vue from 'vue';
-import Modal from '@ajutoare/vue-modal';
+import Modal from '@mmano/vue-modal';
 Vue.use(Modal);
 
 new Vue({
