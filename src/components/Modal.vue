@@ -8,11 +8,7 @@
                 <div class="Modal__content">
                     <header class="Modal__header">
                         <h4 class="Modal__title"><slot name="title"></slot></h4>
-                        <button class="Modal__close" @click="hideModal">
-                            <svg aria-hidden="true" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
-                                <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/>
-                            </svg>
-                        </button>
+                        <button class="Modal__close" @click="hideModal" v-html="closeIcon"></button>
                     </header>
                     <div class="Modal__body">
                         <div class="Modal__body-content">
@@ -30,6 +26,10 @@
 <script>
 export default {
   props: {
+    closeIcon: {
+      default: null,
+      type: String
+    },
     animatedOverlay: {
       default: 'animated fadeIn',
       type: String,
@@ -63,11 +63,33 @@ $v-modal-colors: (
   charlie: #00bf9a
 ) !default;
 
+.Modal__header {
+  background-color: map-get($v-modal-colors, bravo);
+}
+
+.Modal__title {
+  color: map-get($v-modal-colors, alpha);
+}
+
+.Modal__close {
+  background-color: map-get($v-modal-colors, charlie);
+  color: map-get($v-modal-colors, alpha);
+}
+
+.Modal__body {
+  background-color: map-get($v-modal-colors, alpha);
+  color: map-get($v-modal-colors, bravo);
+}
+
+.Modal__footer {
+  background-color: map-get($v-modal-colors, bravo);
+  color: map-get($v-modal-colors, alpha);
+}
+
 .Modal {
   position: absolute;
-
   & * {
-      box-sizing: border-box;
+    box-sizing: border-box;
   }
 }
 
@@ -114,14 +136,12 @@ $v-modal-colors: (
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: map-get($v-modal-colors, bravo);
   padding: 0.875rem 1.25rem;
 }
 
 .Modal__title {
   margin: 0;
   padding: 0;
-  color: map-get($v-modal-colors, alpha);
 }
 
 .Modal__close {
@@ -129,13 +149,11 @@ $v-modal-colors: (
   flex-grow: 0;
   cursor: pointer;
   text-align: center;
-  background-color: map-get($v-modal-colors, charlie);
   outline: none;
   border: none;
   border-radius: 50%;
   width: 1.75rem;
   height: 1.75rem;
-  color: map-get($v-modal-colors, alpha);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -160,10 +178,8 @@ $v-modal-colors: (
 
 .Modal__body {
   position: relative;
-  background-color: map-get($v-modal-colors, alpha);
   padding: 1.25rem;
   overflow: auto;
-  color: map-get($v-modal-colors, bravo);
   height: 100vh;
   @media screen and (min-width: 762px) {
     height: auto;
@@ -191,9 +207,7 @@ $v-modal-colors: (
 }
 
 .Modal__footer {
-  background-color: map-get($v-modal-colors, bravo);
   padding: 0.875rem 1.25rem;
-  color: map-get($v-modal-colors, alpha);
   & p {
     font-size: 0.75rem;
     margin: 0;
