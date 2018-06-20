@@ -35,14 +35,14 @@ new Vue({
 
 ## Options
 
-| Name            | Description                                                                   | Default                                                                        |
-|-----------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| componentName   | This option will change the default element name.                             | `<vue-modal></vue-modal>`                                                      |
-| closeIcon       | Pass an svg icon to change the default close icon.                            | [FontAwesome 5 Times](https://fontawesome.com/icons/times?style=solid&from=io) |
-| animatedOverlay | You can pass any css class you wish and it will add it to the modal overlay.  | `animated fadeIn`                                                              |
-| animationIn     | The animation that is used when opening the modal.                            | `animated bounceInLeft`                                                        |
-| animationOut    | The animation that is used when closing the modal                             | `animated bounceOutRight`                                                      |
-  
+| Name            | Description                                                                  | Default                                                                        |
+| --------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| componentName   | This option will change the default element name.                            | `<vue-modal></vue-modal>`                                                      |
+| closeIcon       | Pass an svg icon to change the default close icon.                           | [FontAwesome 5 Times](https://fontawesome.com/icons/times?style=solid&from=io) |
+| animatedOverlay | You can pass any css class you wish and it will add it to the modal overlay. | `animated fadeIn`                                                              |
+| animationIn     | The animation that is used when opening the modal.                           | `animated bounceInLeft`                                                        |
+| animationOut    | The animation that is used when closing the modal                            | `animated bounceOutRight`                                                      |
+
 Although the default animations are set, There is no animation styles added, If you wish you can install Animate.css and the defaults will kick in.
 
 Example use Below:
@@ -56,6 +56,43 @@ Vue.use(Modal, {
   animationIn: 'animated bounceInLeft',
   animationOut: '',
 });
+```
+
+## Styles
+
+To override any modal styles you can use the following:
+
+```scss
+$v-modal-colors: (
+  alpha: #ffffff,
+  bravo: #37474f,
+  charlie: #00bf9a,
+) !default;
+
+.Modal {
+  .Modal__header {
+    background-color: map-get($v-modal-colors, bravo);
+  }
+
+  .Modal__title {
+    color: map-get($v-modal-colors, alpha);
+  }
+
+  .Modal__close {
+    background-color: map-get($v-modal-colors, charlie);
+    color: map-get($v-modal-colors, alpha);
+  }
+
+  .Modal__body {
+    background-color: map-get($v-modal-colors, alpha);
+    color: map-get($v-modal-colors, bravo);
+  }
+
+  .Modal__footer {
+    background-color: map-get($v-modal-colors, bravo);
+    color: map-get($v-modal-colors, alpha);
+  }
+}
 ```
 
 ## TODO
